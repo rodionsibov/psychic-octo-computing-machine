@@ -11,10 +11,15 @@ const toggleActive = () => {
 const drop = (e) => {
   dropzoneFile.value = e.dataTransfer.files[0]
 }
+
+const selectedFile = () => {
+  dropzoneFile.value = document.querySelector('.dropzone-file').files[0]
+}
+
 </script>
 
 <template>
-  <div @drop.prevent="drop">
+  <div @drop.prevent="drop" @change="selectedFile">
     <h1>Drop Zone</h1>
     <div
       @dragenter.prevent="toggleActive"
@@ -27,7 +32,7 @@ const drop = (e) => {
       <span>Drag or Drop File</span>
       <span>OR</span>
       <label for="dropzoneFile">Select File</label>
-      <input type="file" id="dropzoneFile" />
+      <input type="file" id="dropzoneFile" class="dropzone-file" />
     </div>
     <div class="file-info">File: {{ dropzoneFile?.name }}</div>
   </div>
