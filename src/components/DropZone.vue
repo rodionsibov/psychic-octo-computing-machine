@@ -1,21 +1,31 @@
 <script setup>
 import { ref } from "@vue/reactivity";
 
-const dropzoneFile = ref('')
+const dropzoneFile = ref("");
+const active = ref(false);
+
+const toggleActive = () => {
+  active.value = !active.value;
+};
 </script>
 
 <template>
   <div>
     <h1>Drop Zone</h1>
-    <div @dragenter.prevent="toggleActive" class="dropzone">
+    <div
+      @dragenter.prevent="toggleActive"
+      @dragleave.prevent="toggleActive"
+      @dragover.prevent
+      @drop.prevent="toggleActive"
+      :class="{ 'active-dropzone': active }"
+      class="dropzone"
+    >
       <span>Drag or Drop File</span>
       <span>OR</span>
       <label for="dropzoneFile">Select File</label>
       <input type="file" id="dropzoneFile" />
     </div>
-    <div class="file-info">
-      File: {{dropzoneFile.name}}
-    </div>
+    <div class="file-info">File: {{ dropzoneFile.name }}</div>
   </div>
 </template>
 
@@ -47,12 +57,20 @@ label {
   transition: all 0.3s ease;
 }
 
+label:hover {
+  opacity: 0.8;
+}
+
 h1 {
   text-align: center;
 }
 
 .file-info {
- width: 400px;
- margin: 10px auto;
+  width: 400px;
+  margin: 10px auto;
+}
+
+.active-dropzone {
+  background-color: lightgreen;
 }
 </style>
