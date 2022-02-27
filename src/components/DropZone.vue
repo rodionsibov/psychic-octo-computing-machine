@@ -19,5 +19,8 @@
   justify-content: center;
   align-items: center;
   margin: 0 auto;
+  row-gap: 1rem;
+  background-color: seashell;
+  border: 2px dotted green;
 }
 </style>

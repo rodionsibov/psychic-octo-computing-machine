@@ -17,7 +17,6 @@ import DropZone from "./components/DropZone.vue";
     </router-view>
   </main>
   <section>
-    <hr />
     <DropZone />
   </section>
 </template>
