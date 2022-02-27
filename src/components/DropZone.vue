@@ -7,10 +7,14 @@ const active = ref(false);
 const toggleActive = () => {
   active.value = !active.value;
 };
+
+const drop = (e) => {
+  dropzoneFile.value = e.dataTransfer.files[0]
+}
 </script>
 
 <template>
-  <div>
+  <div @drop.prevent="drop">
     <h1>Drop Zone</h1>
     <div
       @dragenter.prevent="toggleActive"
@@ -25,7 +29,7 @@ const toggleActive = () => {
       <label for="dropzoneFile">Select File</label>
       <input type="file" id="dropzoneFile" />
     </div>
-    <div class="file-info">File: {{ dropzoneFile.name }}</div>
+    <div class="file-info">File: {{ dropzoneFile?.name }}</div>
   </div>
 </template>
 
