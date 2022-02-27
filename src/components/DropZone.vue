@@ -9,17 +9,20 @@ const toggleActive = () => {
 };
 
 const drop = (e) => {
-  dropzoneFile.value = e.dataTransfer.files[0]
-}
+  dropzoneFile.value = e.dataTransfer.files[0];
+};
 
 const selectedFile = () => {
-  dropzoneFile.value = document.querySelector('.dropzone-file').files[0]
-}
-
+  dropzoneFile.value = document.querySelector(".dropzone-file").files[0];
+};
 </script>
 
 <template>
   <div @drop.prevent="drop" @change="selectedFile">
+    <p :style="{ color: $route.query.color }">
+      {{ $route.params.id }}
+    </p>
+
     <h1>Drop Zone</h1>
     <div
       @dragenter.prevent="toggleActive"

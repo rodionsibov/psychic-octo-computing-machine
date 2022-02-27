@@ -1,13 +1,18 @@
 <script setup>
 // This starter template is using Vue 3 <script setup> SFCs
+
 // Check out https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup
+
 </script>
 
 <template>
   <nav>
     <router-link to="/">Home</router-link>
+    <router-link
+      :to="{ name: 'DropZone', query: { color: 'teal' } }"
+      >Drop Zone</router-link
+    >
     <router-link to="/guide">Guide</router-link>
-    <router-link :to="{ name: 'DropZone', query: {zone: 'local'} }">Drop Zone</router-link>
     <router-link to="/dnd">Drag and Drop</router-link>
   </nav>
   <main>
