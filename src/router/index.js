@@ -13,7 +13,7 @@ const routes = [
         component: () => import('../components/Guide.vue')
     },
     {
-        path: '/dropzone/:id',
+        path: '/dropzone/',
         name: 'DropZone',
         component: () => import('../components/DropZone.vue'),
         children: [
