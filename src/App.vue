@@ -1,6 +1,7 @@
 <script setup>
 // This starter template is using Vue 3 <script setup> SFCs
 // Check out https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup
+import DropZone from "./components/DropZone.vue";
 </script>
 
 <template>
@@ -15,6 +16,10 @@
       </transition>
     </router-view>
   </main>
+  <section>
+    <hr />
+    <DropZone />
+  </section>
 </template>
 
 <style>
@@ -35,7 +40,8 @@ nav {
   padding: 1rem;
 }
 
-main {
+main,
+section {
   padding: 1rem;
 }
 
@@ -59,5 +65,10 @@ a.router-link-active {
 .fade-enter-active,
 .fade-leave-active {
   transition: opacity 0.5s ease-out;
+}
+
+hr {
+  border: none;
+  border-top: 1px solid lightgray;
 }
 </style>
