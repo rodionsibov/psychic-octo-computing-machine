@@ -7,7 +7,7 @@
   <nav>
     <router-link to="/">Home</router-link>
     <router-link to="/guide">Guide</router-link>
-    <router-link :to="{ name: 'DropZone', query: {plan: 'private'} }">Drop Zone</router-link>
+    <router-link :to="{ name: 'DropZone', query: {zone: 'local'} }">Drop Zone</router-link>
     <router-link to="/dnd">Drag and Drop</router-link>
   </nav>
   <main>
