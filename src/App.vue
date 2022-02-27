@@ -4,7 +4,15 @@
 </script>
 
 <template>
-  <router-view></router-view>
+  <nav>
+    <router-link to="/">Home</router-link>
+    <router-link to="/guide">Guide</router-link>
+  </nav>
+  <main>
+    <router-view v-slot="{ Component }">
+      <component :is="Component" />
+    </router-view>
+  </main>
 </template>
 
 <style>
@@ -14,6 +22,30 @@
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+}
+
+body {
+  margin: 0;
+}
+
+nav {
+  padding: 1rem;
+  background-color: seashell;
+}
+
+main {
+  padding: 1rem;
+}
+
+a {
+  margin-right: 1rem;
+  text-decoration: none;
+  font-weight: bold;
+  color: #2c3e50;
+}
+
+a:hover,
+a.router-link-active {
+  border-bottom: 2px solid #3498db;
 }
 </style>
