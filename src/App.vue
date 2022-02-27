@@ -10,7 +10,9 @@
   </nav>
   <main>
     <router-view v-slot="{ Component }">
-      <component :is="Component" />
+      <transition name="fade">
+        <component :is="Component" />
+      </transition>
     </router-view>
   </main>
 </template>
@@ -20,8 +22,9 @@
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
   color: #2c3e50;
+  max-width: 600px;
+  margin: 0 auto;
 }
 
 body {
@@ -30,7 +33,6 @@ body {
 
 nav {
   padding: 1rem;
-  background-color: seashell;
 }
 
 main {
@@ -47,5 +49,15 @@ a {
 a:hover,
 a.router-link-active {
   border-bottom: 2px solid #3498db;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+}
+
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.5s ease-out;
 }
 </style>
