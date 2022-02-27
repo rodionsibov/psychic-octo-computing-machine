@@ -12,6 +12,22 @@ const routes = [
         name: 'Guide',
         component: () => import('../components/Guide.vue')
     },
+    {
+        path: '/dropzone/:id',
+        name: 'DropZone',
+        component: () => import('../components/DropZone.vue'),
+        children: [
+            {
+                path: 'info',
+                component: () => import('../components/Missing.vue'),
+            }
+        ]
+    },
+    {
+        path: '/dnd',
+        name: 'DragAndDrop',
+        component: () => import('../components/DragAndDrop.vue')
+    },
 ]
 
 const router = createRouter({

@@ -1,13 +1,14 @@
 <script setup>
 // This starter template is using Vue 3 <script setup> SFCs
 // Check out https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup
-import DropZone from "./components/DropZone.vue";
 </script>
 
 <template>
   <nav>
     <router-link to="/">Home</router-link>
     <router-link to="/guide">Guide</router-link>
+    <router-link :to="{ name: 'DropZone', query: {plan: 'private'} }">Drop Zone</router-link>
+    <router-link to="/dnd">Drag and Drop</router-link>
   </nav>
   <main>
     <router-view v-slot="{ Component }">
@@ -16,9 +17,6 @@ import DropZone from "./components/DropZone.vue";
       </transition>
     </router-view>
   </main>
-  <section>
-    <DropZone />
-  </section>
 </template>
 
 <style>
@@ -39,8 +37,7 @@ nav {
   padding: 1rem;
 }
 
-main,
-section {
+main {
   padding: 1rem;
 }
 
@@ -63,7 +60,7 @@ a.router-link-active {
 
 .fade-enter-active,
 .fade-leave-active {
-  transition: opacity 0.5s ease-out;
+  transition: opacity 0.3s ease-out;
 }
 
 hr {
