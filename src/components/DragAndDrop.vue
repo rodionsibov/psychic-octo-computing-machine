@@ -5,17 +5,17 @@ const items = ref([
   {
     id: 0,
     title: "Item A",
-    list: 1
+    list: 1,
   },
   {
     id: 1,
     title: "Item B",
-    list: 1
+    list: 1,
   },
   {
     id: 2,
     title: "Item C",
-    list: 2
+    list: 2,
   },
 ]);
 
@@ -24,21 +24,34 @@ const getList = (list) => {
 };
 
 const startDrag = (event, item) => {
-    console.log(item);
-    event.dataTransfer.dropEffect = 'move'
-}
+  console.log(item);
+  event.dataTransfer.dropEffect = "move";
+  event.dataTransfer.effectAllowed = "move";
+  event.dataTransfer.setData("itemID", item.id);
+};
 </script>
 
 <template>
   <div>
     <h1>Drag & Drop</h1>
     <div class="drop-zone">
-      <div v-for="item in getList(1)" :key="item.id" class="drag-el" draggable="true">
+      <div
+        v-for="item in getList(1)"
+        :key="item.id"
+        class="drag-el"
+        draggable="true"
+        @dragstart="startDrag($event, item)"
+      >
         {{ item.title }}
       </div>
     </div>
     <div class="drop-zone">
-      <div v-for="item in getList(2)" :key="item.id" class="drag-el" draggable="true">
+      <div
+        v-for="item in getList(2)"
+        :key="item.id"
+        class="drag-el"
+        draggable="true"
+      >
         {{ item.title }}
       </div>
     </div>
@@ -47,27 +60,27 @@ const startDrag = (event, item) => {
 
 <style scoped>
 h1 {
-    text-align: center;
+  text-align: center;
 }
 
 .drop-zone {
-    width: 50%;
-    min-height: 10px;
-    margin: 50px auto;
-    padding: 10px;
-    background-color: powderblue;
-    border-radius: 4px;
+  width: 50%;
+  min-height: 10px;
+  margin: 50px auto;
+  padding: 10px;
+  background-color: powderblue;
+  border-radius: 4px;
 }
 
 .drag-el {
-    background-color: dodgerblue;
-    color: whitesmoke;
-    padding: 10px;
-    margin-bottom: 10px;
-    border-radius: 4px;
+  background-color: dodgerblue;
+  color: whitesmoke;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 4px;
 }
 
 .drag-el:nth-last-of-type(1) {
-    margin-bottom: 0;
+  margin-bottom: 0;
 }
 </style>
