@@ -26,9 +26,14 @@ const getList = (list) => {
 
 <template>
   <div>
-    <h1>drag and drop</h1>
+    <h1>Drag & Drop</h1>
     <div class="drop-zone">
-      <div v-for="item in getList" :key="item.id">
+      <div v-for="item in getList(1)" :key="item.id" class="drag-el">
+        {{ item.title }}
+      </div>
+    </div>
+    <div class="drop-zone">
+      <div v-for="item in getList(2)" :key="item.id" class="drag-el">
         {{ item.title }}
       </div>
     </div>
@@ -36,4 +41,21 @@ const getList = (list) => {
 </template>
 
 <style scoped>
+h1 {
+    text-align: center;
+}
+
+.drop-zone {
+    width: 50%;
+    min-height: 10px;
+    margin: 50px auto;
+    background-color: seashell;
+}
+
+.drag-el {
+    background-color: cyan;
+    color: whitesmoke;
+    padding: 5px;
+    margin-bottom: 10px;
+}
 </style>

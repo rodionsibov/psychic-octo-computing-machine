@@ -13,7 +13,7 @@
       >Drop Zone</router-link
     >
     <router-link to="/guide">Guide</router-link>
-    <router-link to="/dnd">Drag and Drop</router-link>
+    <router-link to="/dnd">Drag & Drop</router-link>
   </nav>
   <main>
     <router-view v-slot="{ Component }">
