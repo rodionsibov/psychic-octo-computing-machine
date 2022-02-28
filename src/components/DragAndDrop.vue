@@ -28,12 +28,12 @@ const getList = (list) => {
   <div>
     <h1>Drag & Drop</h1>
     <div class="drop-zone">
-      <div v-for="item in getList(1)" :key="item.id" class="drag-el">
+      <div v-for="item in getList(1)" :key="item.id" class="drag-el" draggable="true">
         {{ item.title }}
       </div>
     </div>
     <div class="drop-zone">
-      <div v-for="item in getList(2)" :key="item.id" class="drag-el">
+      <div v-for="item in getList(2)" :key="item.id" class="drag-el" draggable="true">
         {{ item.title }}
       </div>
     </div>
@@ -49,15 +49,17 @@ h1 {
     width: 50%;
     min-height: 10px;
     margin: 50px auto;
-    padding: 5px;
+    padding: 10px;
     background-color: powderblue;
+    border-radius: 4px;
 }
 
 .drag-el {
-    background-color: teal;
+    background-color: dodgerblue;
     color: whitesmoke;
-    padding: 5px;
+    padding: 10px;
     margin-bottom: 10px;
+    border-radius: 4px;
 }
 
 .drag-el:nth-last-of-type(1) {
