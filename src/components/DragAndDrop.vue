@@ -49,13 +49,18 @@ h1 {
     width: 50%;
     min-height: 10px;
     margin: 50px auto;
-    background-color: seashell;
+    padding: 5px;
+    background-color: powderblue;
 }
 
 .drag-el {
-    background-color: cyan;
+    background-color: teal;
     color: whitesmoke;
     padding: 5px;
     margin-bottom: 10px;
+}
+
+.drag-el:nth-last-of-type(1) {
+    margin-bottom: 0;
 }
 </style>
