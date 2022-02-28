@@ -29,12 +29,23 @@ const startDrag = (event, item) => {
   event.dataTransfer.effectAllowed = "move";
   event.dataTransfer.setData("itemID", item.id);
 };
+
+const onDrop = (event, list) => {
+  const itemID = event.dataTransfer.getData("itemID");
+  const item = items.value.find((item) => item.id == itemID);
+  item.list = list;
+};
 </script>
 
 <template>
   <div>
     <h1>Drag & Drop</h1>
-    <div class="drop-zone">
+    <div
+      class="drop-zone"
+      @drop="onDrop($event, 1)"
+      @dragenter.prevent
+      @dragover.prevent
+    >
       <div
         v-for="item in getList(1)"
         :key="item.id"
@@ -45,7 +56,12 @@ const startDrag = (event, item) => {
         {{ item.title }}
       </div>
     </div>
-    <div class="drop-zone">
+    <div
+      class="drop-zone"
+      @drop="onDrop($event, 2)"
+      @dragenter.prevent
+      @dragover.prevent
+    >
       <div
         v-for="item in getList(2)"
         :key="item.id"
