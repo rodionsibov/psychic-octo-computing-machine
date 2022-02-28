@@ -67,6 +67,7 @@ const onDrop = (event, list) => {
         :key="item.id"
         class="drag-el"
         draggable="true"
+        @dragstart="startDrag($event, item)"
       >
         {{ item.title }}
       </div>
