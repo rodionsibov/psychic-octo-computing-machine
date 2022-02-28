@@ -22,6 +22,11 @@ const items = ref([
 const getList = (list) => {
   return items.value.filter((item) => item.list == list);
 };
+
+const startDrag = (event, item) => {
+    console.log(item);
+    event.dataTransfer.dropEffect = 'move'
+}
 </script>
 
 <template>
